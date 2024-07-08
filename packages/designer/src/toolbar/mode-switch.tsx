@@ -27,6 +27,7 @@ export const ModeSwitchTool = observer(() => {
         selected={designer.activeView === 'design'}
         onClick={() => {
           designer.setActiveView('design');
+          designer.toggleIsPreview(false); // 切回设计模式
         }}
         tooltip="设计视图"
       >
@@ -50,6 +51,7 @@ export const ModeSwitchTool = observer(() => {
         onClick={() => {
           designer.setActiveView('dual'); // 切换到双屏视图
           designer.setActiveSidebarPanel(''); // 关闭左侧面板
+          designer.toggleIsPreview(true); // 切换到预览模式
           activeFileCheck();
         }}
         tooltip="双屏视图"
